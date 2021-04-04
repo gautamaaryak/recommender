@@ -1,6 +1,6 @@
 # app.py
 from flask import Flask, request, jsonify
-import Recommender
+import model
 app = Flask(__name__)
 
 @app.route('/getrec/', methods=['GET'])
@@ -21,7 +21,7 @@ def respond():
         response["ERROR"] = "name can't be numeric."
     # Now the user entered a valid name
     else:
-        response["MESSAGE"] = Recommender.get_products(name)
+        response["MESSAGE"] = model.get_products(name)
 
         # Return the response in json format
         line1 =  "<h1>Here is the recommendation for "+ name + "<h1> <br> <ul>"
@@ -38,7 +38,7 @@ def respond():
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return "<h1>Welcome to our server !!</h1>"
+    return """<h1>Welcome to our server !!</h1><br> Please input name <form action="getrec" method="get"> <input type="text" name="name"> </form>"""
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support

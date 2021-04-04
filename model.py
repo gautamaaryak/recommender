@@ -1,6 +1,9 @@
 import pandas as pd
 
 
+# Note: We have created the user_final_rating.csv using our best model trained in Jupyter Notebook. 
+# Refer to section - "Loading the best model" from jupyter notebook
+# So we load user_final_rating.csv as a look up table.
 
 # Load user_final_rating.csv
 
