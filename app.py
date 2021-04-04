@@ -31,8 +31,8 @@ def respond():
 
         line1 = line1 + "</ul>"
         response = line1
-        
-    return jsonify(response)
+
+    return response
 
 
 # A welcome message to test our server
