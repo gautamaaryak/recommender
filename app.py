@@ -23,7 +23,15 @@ def respond():
     else:
         response["MESSAGE"] = Recommender.get_products(name)
 
-    # Return the response in json format
+        # Return the response in json format
+        line1 =  "<h1>Here is the recommendation for "+ name + "<h1> <br> <ul>"
+
+        for i in response["MESSAGE"]:
+            line1 = line1 + "<li>" + i + "</li>"
+
+        line1 = line1 + "</ul>"
+        response = line1
+        
     return jsonify(response)
 
 
