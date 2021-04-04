@@ -38,8 +38,12 @@ def respond():
 # A welcome message to test our server
 @app.route('/')
 def index():
-    return """<h1>Welcome to our server !!</h1><br> Please input name <form action="getrec" method="get"> <input type="text" name="name">  <input type="submit" name="submit"></form>"""
+    with open('index.html', 'r') as f:
+        data = f.read()
+    # return """<h1>Welcome to our server !!</h1><br> Please input name <form action="getrec" method="get"> <input type="text" name="name">  <input type="submit" name="submit"></form>"""
+    return data
 
+    
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
     app.run(threaded=True, port=5000)
